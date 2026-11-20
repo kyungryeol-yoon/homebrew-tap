@@ -1,6 +1,6 @@
 cask "diswitch" do
-  version "0.1.0"
-  sha256 "7aee4eb253a8a48a71256280b7f5ccc1a71f5016301e2d5b2e247a16638d265f"
+  version "0.1.1"
+  sha256 "f514e5baf9e9da74ef48603b10d080d60a9716b7ff4720736257d8b707f105e6"
 
   url "https://github.com/kyungryeol-yoon/DiSwitch/releases/download/v#{version}/DiSwitch-#{version}.zip"
   name "DiSwitch"
@@ -19,7 +19,10 @@ cask "diswitch" do
         writable_paths: ["{{appdir}}/DiSwitch.app"]
   end
 
-  uninstall quit: "app.displayinputswitch"
+  uninstall quit: "io.github.kyungryeol-yoon.diswitch"
 
-  zap trash: "~/Library/Preferences/app.displayinputswitch.plist"
+  zap trash: [
+    "~/Library/Preferences/io.github.kyungryeol-yoon.diswitch.plist",
+    "~/Library/Preferences/app.displayinputswitch.plist", # 2026-11-21 이전 번들 ID
+  ]
 end
