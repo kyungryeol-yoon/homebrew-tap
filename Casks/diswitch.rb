@@ -8,15 +8,15 @@ cask "diswitch" do
   homepage "https://github.com/kyungryeol-yoon/DiSwitch"
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sequoia"
+  depends_on macos: :sequoia
 
   app "DiSwitch.app"
 
   # 애플 개발자 서명·공증을 하지 않은 앱이라, 「확인되지 않은 개발자」 경고 없이 열리도록 격리 표시를 지움
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/DiSwitch.app"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/DiSwitch.app"],
+        writable_paths: ["{{appdir}}/DiSwitch.app"]
   end
 
   uninstall quit: "app.displayinputswitch"
