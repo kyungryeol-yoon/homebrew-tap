@@ -1,6 +1,6 @@
 cask "diswitch" do
-  version "0.1.9"
-  sha256 "8ba92fa619947d5070fb427f7ae2c45bdcdeacf7a3b148a71fa2e34683cf9e09"
+  version "0.1.10"
+  sha256 "6706ed73e93958aa38cbb916ba7a8cf0fa6706970c904e0b596dc5d700d0caaa"
 
   url "https://github.com/kyungryeol-yoon/DiSwitch/releases/download/v#{version}/DiSwitch-#{version}.zip"
   name "DiSwitch"
