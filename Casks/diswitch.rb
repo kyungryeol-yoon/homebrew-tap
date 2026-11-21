@@ -1,6 +1,6 @@
 cask "diswitch" do
-  version "0.1.3"
-  sha256 "8cb3ac6e045ba14518ee0c12398cb31eae2d1363fbc186771b8131ec6151a5b5"
+  version "0.1.4"
+  sha256 "d1672b726302070f664efea9e7052b208ac46a9e2fa3950829cda4fc0d551de3"
 
   url "https://github.com/kyungryeol-yoon/DiSwitch/releases/download/v#{version}/DiSwitch-#{version}.zip"
   name "DiSwitch"
@@ -21,8 +21,14 @@ cask "diswitch" do
 
   uninstall quit: "io.github.kyungryeol-yoon.diswitch"
 
-  zap trash: [
-    "~/Library/Preferences/io.github.kyungryeol-yoon.diswitch.plist",
-    "~/Library/Preferences/app.displayinputswitch.plist", # 2026-11-21 이전 번들 ID
-  ]
+  # plist만 휴지통에 버리면 cfprefsd가 메모리에 들고 있던 옛 설정을 다시 설치한 앱이 그대로 읽음 → defaults로 먼저 지움
+  zap script: {
+        executable:   "/usr/bin/defaults",
+        args:         ["delete", "io.github.kyungryeol-yoon.diswitch"],
+        must_succeed: false,
+      },
+      trash:  [
+        "~/Library/Preferences/io.github.kyungryeol-yoon.diswitch.plist",
+        "~/Library/Preferences/app.displayinputswitch.plist", # 2026-11-21 이전 번들 ID
+      ]
 end
