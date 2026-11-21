@@ -1,6 +1,6 @@
 cask "hum" do
-  version "0.1.0"
-  sha256 "fdfb29b1bb517bae30e58a73628929d5b0974cc84f0a1cc42f5a07900a288f30"
+  version "0.1.1"
+  sha256 "354c39ceeb5da228877c6abb7359e78136d740077b84b3db987d535ee92734d1"
 
   url "https://github.com/kyungryeol-yoon/hum/releases/download/v#{version}/Hum-#{version}.zip"
   name "Hum"
