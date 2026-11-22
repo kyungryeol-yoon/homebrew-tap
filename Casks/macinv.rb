@@ -1,6 +1,6 @@
 cask "macinv" do
-  version "0.1.0"
-  sha256 "f50f8e299eab0b27f1d300d14385c9d7fb9d1e43227926b330b79c110aa7b73a"
+  version "0.1.1"
+  sha256 "fe0828effd34d85197a70f4c724fec0017bf05e69a2ec3fe7acadd35e81df994"
 
   url "https://github.com/kyungryeol-yoon/MacInv/releases/download/v#{version}/MacInv-#{version}.zip"
   name "MacInv"
